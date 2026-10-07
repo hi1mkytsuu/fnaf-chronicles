@@ -11,4 +11,5 @@
 
 - Use TanStack routes and semantic HTML for the FNAF archive; the existing framework supplies navigation and accessible interactions.
 - Keep game lore and character associations in a shared browser-safe data module, distinguishing confirmed links from theories to avoid mixing continuities.
-- Use individual bundled fan-art portraits throughout the archive; label artistic depictions rather than imply official character imagery.
+- Use individual verified reference portraits via Lovable Assets alongside labeled bundled fan art; never substitute another character image or claim an incomplete catalog is exhaustive.
+- Keep unavailable cross-continuity image records separate from the illustrated catalog so games, skins, books, and films remain distinguishable without fabricated artwork.

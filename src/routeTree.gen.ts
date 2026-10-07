@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnimatronicosRouteImport } from './routes/animatronicos'
 import { Route as JogosSlugRouteImport } from './routes/jogos.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnimatronicosRoute = AnimatronicosRouteImport.update({
+  id: '/animatronicos',
+  path: '/animatronicos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JogosSlugRoute = JogosSlugRouteImport.update({
@@ -25,27 +31,31 @@ const JogosSlugRoute = JogosSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/animatronicos': typeof AnimatronicosRoute
   '/jogos/$slug': typeof JogosSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/animatronicos': typeof AnimatronicosRoute
   '/jogos/$slug': typeof JogosSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/animatronicos': typeof AnimatronicosRoute
   '/jogos/$slug': typeof JogosSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/jogos/$slug'
+  fullPaths: '/' | '/animatronicos' | '/jogos/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/jogos/$slug'
-  id: '__root__' | '/' | '/jogos/$slug'
+  to: '/' | '/animatronicos' | '/jogos/$slug'
+  id: '__root__' | '/' | '/animatronicos' | '/jogos/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnimatronicosRoute: typeof AnimatronicosRoute
   JogosSlugRoute: typeof JogosSlugRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/animatronicos': {
+      id: '/animatronicos'
+      path: '/animatronicos'
+      fullPath: '/animatronicos'
+      preLoaderRoute: typeof AnimatronicosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/jogos/$slug': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnimatronicosRoute: AnimatronicosRoute,
   JogosSlugRoute: JogosSlugRoute,
 }
 export const routeTree = rootRouteImport
