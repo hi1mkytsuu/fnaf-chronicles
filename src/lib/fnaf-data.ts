@@ -1,3 +1,4 @@
+import { catalogCharacters } from '@/lib/fnaf-catalog';
 import freddy from '@/assets/portraits/freddy.jpg';
 import bonnie from '@/assets/portraits/bonnie.jpg';
 import chica from '@/assets/portraits/chica.jpg';
@@ -16,8 +17,8 @@ import susie from '@/assets/portraits/susie.jpg';
 import fritz from '@/assets/portraits/fritz.jpg';
 import cassidy from '@/assets/portraits/cassidy.jpg';
 import charlotte from '@/assets/portraits/charlotte.jpg';
-export type Character = { id:string; name:string; image:string; soul:string; child?:string; status:string; description:string; tier:string; terror:string };
-export const characters: Character[] = [
+export type Character = { id:string; name:string; image:string; soul:string; child?:string; status:string; description:string; tier:string; terror:string; game?:string; continuity?:string; group?:string; source?:string; imageKind?:string };
+const originalCharacters: Character[] = [
  {id:'freddy',name:'Freddy Fazbear',image:freddy,soul:'Gabriel',child:gabriel,status:'Associação consolidada',description:'O rosto da pizzaria. A ligação com Gabriel é estabelecida a partir dos túmulos de FFPS e das máscaras de FNAF 3.',tier:'A',terror:'B'},
  {id:'bonnie',name:'Bonnie',image:bonnie,soul:'Jeremy',child:jeremy,status:'Associação consolidada',description:'O guitarrista que espreita o corredor esquerdo. Jeremy é uma das vítimas do incidente das crianças desaparecidas.',tier:'B',terror:'A'},
  {id:'chica',name:'Chica',image:chica,soul:'Susie',child:susie,status:'Ligação fortemente sustentada',description:'Fruity Maze mostra Susie sendo atraída por uma promessa sobre seu cachorro. Em Ultimate Custom Night, Chica afirma ter sido a primeira.',tier:'B',terror:'B'},
@@ -31,6 +32,8 @@ export const characters: Character[] = [
  {id:'glamrock',name:'Glamrock Freddy',image:glamrock,soul:'Nenhuma criança confirmada',status:'Possessão não comprovada',description:'O protetor de Gregory no Mega Pizzaplex. Teorias sobre uma alma conhecida existem, mas os jogos não confirmam uma criança dentro dele.',tier:'A',terror:'C'},
  {id:'mimic',name:'The Mimic',image:mimic,soul:'Nenhuma criança confirmada',status:'Endoesqueleto imitador',description:'Uma máquina que copia comportamentos e vozes. Ruin explora sua manipulação, e Secret of the Mimic retorna à origem dessa tecnologia.',tier:'S',terror:'S'},
 ];
+export const characters: Character[] = [...originalCharacters.map(c=>({...c,continuity:"Jogos",group:"Personagens centrais",imageKind:"fanart"})),...catalogCharacters];
+export const getGameCharacters = (game:Game) => characters.filter(c=>c.game===game.slug || game.cast.includes(c.id));
 export type Game = {slug:string; title:string; short:string; release:string; era:string; group:string; image:string; number:string; subtitle:string; story:string[]; event:string; cast:string[]; caveat:string};
 const game = (slug:string,title:string,short:string,release:string,era:string,group:string,image:string,number:string,subtitle:string,story:string[],event:string,cast:string[],caveat='A cronologia combina pistas dos jogos. Datas não explicitadas e identidades debatidas não são tratadas como fatos.') : Game => ({slug,title,short,release,era,group,image,number,subtitle,story,event,cast,caveat});
 export const games:Game[] = [
