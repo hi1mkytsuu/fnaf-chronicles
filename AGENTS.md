@@ -13,3 +13,4 @@
 - Keep game lore and character associations in a shared browser-safe data module, distinguishing confirmed links from theories to avoid mixing continuities.
 - Use individual verified reference portraits via Lovable Assets alongside labeled bundled fan art; never substitute another character image or claim an incomplete catalog is exhaustive.
 - Keep unavailable cross-continuity image records separate from the illustrated catalog so games, skins, books, and films remain distinguishable without fabricated artwork.
+- Keep the archive interface in focused modules for layout, home, lore, list, catalog, modal, and portraits; routes import their page modules directly to make navigation and shared UI easy to locate.
