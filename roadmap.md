@@ -1,7 +1,7 @@
 # FNAF Archive
-- [ ] Remover menções de autoria e ao pedido do usuário dos textos e da documentação.
-- [ ] Separar e formatar os arquivos da interface sem alterar o site.
-- [ ] Verificar navegação, busca, lista e detalhes após a reorganização.
+- [x] Remover menções de autoria e ao pedido do usuário dos textos e da documentação.
+- [x] Separar e formatar os arquivos da interface sem alterar o site.
+- [x] Verificar navegação, busca, lista e detalhes após a reorganização.
 - [x] Criar catálogo sombrio dos jogos e páginas de história.
 - [x] Exibir retratos dos personagens centrais, crianças e distinções entre fatos e teorias.
 - [x] Criar tier-list com ampliação e detalhes.
